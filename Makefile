@@ -17,6 +17,5 @@ image:
 
 push:
 	@docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
-	@docker buildx rm cross
-	@docker buildx create --use --name cross --platform $(PLATFORMS)
+	@docker buildx create --use --name cross --platform $(PLATFORMS) --node cross0
 	@docker buildx build --platform $(PLATFORMS) -t $(IMAGE_TAG) --push .

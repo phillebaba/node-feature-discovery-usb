@@ -20,4 +20,3 @@ push:
 	@docker buildx rm cross
 	@docker buildx create --use --name cross --platform $(PLATFORMS)
 	@docker buildx build --platform $(PLATFORMS) -t $(IMAGE_TAG) --push .
-

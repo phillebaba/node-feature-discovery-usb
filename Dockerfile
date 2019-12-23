@@ -10,6 +10,6 @@ RUN dep ensure -vendor-only
 COPY . /go/src/github.com/phillebaba/node-feature-discovery-usb
 RUN go build -o /bin/usb main.go
 
-FROM phillebaba/node-feature-discovery:v0.4.0
+FROM phillebaba/node-feature-discovery:v0.5.0
 RUN apt update && apt install libusb-1.0-0
 COPY --from=build /bin/usb /etc/kubernetes/node-feature-discovery/source.d/usb

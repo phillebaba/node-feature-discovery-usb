@@ -15,7 +15,8 @@ jobs:
       - name: Prepare
         id: prep
         run: |
-          DOCKER_IMAGE=${{ secrets.QUAY_USERNAME }}/${GITHUB_REPOSITORY#*/}
+          #DOCKER_IMAGE=${{ secrets.QUAY_USERNAME }}/${GITHUB_REPOSITORY#*/}
+          DOCKER_IMAGE=phillebaba/${GITHUB_REPOSITORY#*/}
           VERSION=latest
           SHORTREF=${GITHUB_SHA::8}
 
@@ -50,7 +51,8 @@ jobs:
         uses: docker/login-action@v1
         with:
           registry: quay.io
-          username: ${{ secrets.QUAY_USERNAME }}+github
+          username: "phillebaba+github"
+          #username: ${{ secrets.QUAY_USERNAME }}+github
           password: ${{ secrets.QUAY_PASSWORD }}
 
       - name: Build
